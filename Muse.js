@@ -1,0 +1,31 @@
+
+import { useState } from 'react';
+
+function TarjetaPerfil() {
+  const [siguiendo, setSiguiendo] = useState(false);
+
+  return (
+    <div>
+      <h2>María López</h2>
+      <p>@maria_dibuja</p>
+      <p>¡Hola! Me gusta dibujar y escuchar música.</p>
+
+      <button onClick={() => setSiguiendo(!siguiendo)}>
+        {siguiendo ? 'Dejar de seguir' : 'Seguir'}
+      </button>
+
+      <p>
+        Estado: {siguiendo ? 'Siguiendo' : 'No sigues a esta persona'}
+      </p>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+      <h1>Mi red social</h1>
+      <TarjetaPerfil />
+    </div>
+  );
+}
