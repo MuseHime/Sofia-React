@@ -1,0 +1,46 @@
+import { useState } from 'react';
+
+
+function BotonSeguir({ siguiendo, onToggle }) {
+  return (
+    <button onClick={onToggle}>
+      {siguiendo ? 'Dejar de seguir' : 'Seguir'}
+    </button>
+  );
+}
+
+
+function TarjetaPerfil({ nombre, usuario, bio }) {
+  const [siguiendo, setSiguiendo] = useState(false);
+
+  const handleToggle = () => {
+    setSiguiendo(!siguiendo);
+  };
+
+  return (
+    <div>
+      <h2>{nombre}</h2>
+      <p>{usuario}</p>
+      <p>{bio}</p>
+
+      <BotonSeguir siguiendo={siguiendo} onToggle={handleToggle} />
+
+      <p>
+        Estado: {siguiendo ? 'Siguiendo' : 'No sigues a esta persona'}
+      </p>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+      <h1>Mi red social</h1>
+      <TarjetaPerfil 
+        nombre="María López" 
+        usuario="@maria_dibuja" 
+        bio="¡Hola! Me gusta dibujar y escuchar música." 
+      />
+    </div>
+  );
+}
